@@ -3,46 +3,70 @@ const Apify = require('apify');
 const Readability = require('./readability/Readability.js');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
+const fs = require('fs');
+const path = require('path');
 
 process.env.APIFY_LOCAL_STORAGE_DIR='./apify_local_storage';
-// Prepare a list of URLs to crawl
-const requestList = new Apify.RequestList({
-  sources: [
-   //   { url: 'https://github.com/GoogleChrome/puppeteer/' },
-      { 
-		url: 'https://www.html5rocks.com/en/tutorials/casestudies/box_dnd_download/' 
+process.env.APIFY_MEMORY_MBYTES='999mb'
+
+const options_requests = {
+	sources: [
+		{ 
+			url: 'https://hackernoon.com/how-does-tor-really-work-c3242844e11f'
 		},
-  ],
-});
+	]
+}
 
-(async () => {
+async function initList(){
+	const requestList = new Apify.RequestList(options_requests);
 	await requestList.initialize();
-})();
+	return requestList;
+}
 
-// Crawl the URLs
-const crawler = new Apify.BasicCrawler({
-    requestList,
-    handleRequestFunction: async ({ request }) => {
-        // 'request' contains an instance of the Request class
-        // Here we simply fetch the HTML of the page and store it to a dataset
-        await Apify.pushData({
-            url: request.url,
-            html: await rp(request.url),
-        })
-        var html = await rp(request.url)
+async function initCrawler(requestList){
+	const crawler = await new Apify.BasicCrawler({
+	    requestList,
+			handleRequestFunction: handleRequestFunction,
+	})
+	crawler.run();
+}
 
-		var dom = new JSDOM(html)
-		var article = new Readability(dom.window.document).parse();
-		console.log(article.content)
-		console.log(article.title)
-		console.log(article.excerpt)
-		console.log(article.byline)
-		console.log(article.length)
+async function handleRequestFunction ({ request }) {
+	await Apify.pushData({
+    	url: request.url,
+        html: await rp(request.url),
+	})
+    const html = await rp(request.url)
+	const dom = new JSDOM(html)
+	const article = new Readability(dom.window.document).parse();
+	const metadata = {
+		title: article.title,
+		length: article.length,
+		excerpt: article.excerpt,
+		byline: article.byline,
+		dir: article.dir,
+	}
+	let metadata_path = path.join( __dirname, "metadata.json"  )
+	let content_path = path.join( __dirname, "content.html"  )
+	fs.writeFile(metadata_path, metadata, function(err,data){
+		console.log(metadata)
+	})
+	const template = fs.readFile('./template.html', function(err, data){
+		let template = data.toString('utf8');
+		const template_dom = new JSDOM(template)
+		const template_document = template_dom.window.document;
+		template_document.querySelector('body').innerHTML = article.content
+		const template_serialized = template_dom.serialize()
 	
-    },
-});
 
-(async () => {
-	await crawler.run();
-})();
+		fs.writeFile(content_path, template_serialized, function(err,data){
+			console.log(metadata.title)
+		})
+	})
+}
+//console.log(handleRequestFunction)
 
+initList()
+	.then( (requestList) =>  {
+		initCrawler(requestList)
+		})
