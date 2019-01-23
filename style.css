@@ -1,434 +1,51 @@
-/* Parameters */
-/*----------------------------
- * Abbreviations
- *--------------------------- */
-/*___________________________
- *Scales
- *____________________________ */
-/* ---------------------------------
- * Fonts
- * --------------------------------- */
-/* ---------------------------------
- * Colors
- * --------------------------------- */
-/* ---------------------------------
- * Ratios
- * --------------------------------- */
-/*----------------------------
- * Abbreviations
- *--------------------------- */
-/*___________________________
- *Scales
- *____________________________ */
-/* ---------------------------------
- * Fonts
- * --------------------------------- */
-/* ---------------------------------
- * Colors
- * --------------------------------- */
-/* ---------------------------------
- * Ratios
- * --------------------------------- */
-.dark {
-  background: #222222;
-  color: rgba(250, 250, 250, 0.9); }
-  .dark ::selection {
-    color: #333333;
-    background: #cccccc; }
-  .dark ::-moz-selection {
-    color: #333333;
-    background: #cccccc; }
-  .dark i {
-    color: #cccccc; }
-  .dark a {
-    color: #ffed99; }
-    .dark a::selection {
-      color: #665400;
-      background: #ffed99; }
-    .dark a::-moz-selection {
-      color: #665400;
-      background: #ffed99; }
-    .dark a:visited {
-      color: #c4d5d5; }
-    .dark a:hover {
-      color: #ffdb33; }
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300|Raleway');
 
-.light {
-  background: #fafafa;
-  color: rgba(34, 34, 34, 0.9); }
-  .light ::selection {
-    color: #e6e6e6;
-    background: #4d4d4d; }
-  .light ::-moz-selection {
-    color: #e6e6e6;
-    background: #4d4d4d; }
-  .light i {
-    color: #333333; }
-  .light a {
-    color: #665400; }
-    .light a::selection {
-      color: #fff6cc;
-      background: #665400; }
-    .light a::-moz-selection {
-      color: #fff6cc;
-      background: #665400; }
-    .light a:visited {
-      color: #2b3c3c; }
-    .light a:hover {
-      color: #cca800; }
-
-@media screen {
-  body {
-    background: #fafafa; } }
-
-@media print {
-  main, main.light, body, body.light {
-    background: white; } }
-
-section {
-  width: 96%; }
-
-/* Whole Page */
-input:required:invalid, input:focus:invalid, textarea:required:invalid, textarea:focus:invalid {
-  -moz-box-shadow: none;
-  box-shadow: none; }
-
-body, header, footer {
-  background: white; }
-
-form {
-  padding: 1em 0em; }
-
-/*----------------------------
- * Abbreviations
- *--------------------------- */
-/*___________________________
- *Scales
- *____________________________ */
-/* ---------------------------------
- * Fonts
- * --------------------------------- */
-/* ---------------------------------
- * Colors
- * --------------------------------- */
-/* ---------------------------------
- * Ratios
- * --------------------------------- */
-html {
-  font-size: calc( 7pt + .8vw);
-  line-height: 1.61803;
-  font-family: "Biryani Light", "Roboto", Helvetica, sans-serif; }
-
-h1, h2, h3, h4, h5, h6, legend {
-  text-align: center;
-  font-family: "Kaushan Script", Helvetica, serif; }
-
-h1 {
-  font-size: 2.48832em; }
-
-h2 {
-  font-size: 2.0736em; }
-
-h3 {
-  font-size: 1.728em; }
-
-h4 {
-  font-size: 1.44em; }
-
-h5 {
-  font-size: 1.2em; }
-
-h6 {
-  font-size: 1em; }
-
-a {
-  font-weight: normal;
-  text-decoration: none; }
-
-dfn {
-  font-style: normal; }
-
-*:focus {
-  outline: 0.2em dashed rgba(20, 20, 20, 0.86); }
-
-/*----------------------------
- * Abbreviations
- *--------------------------- */
-/*___________________________
- *Scales
- *____________________________ */
-.flex_column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
-.flex_row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center; }
-
-/* Positioning*/
-.float_left {
-  float: left; }
-
-.float_right {
-  float: right; }
-
-/******************************************************************************************
- *
- *	||Golden Column||
- *
- *	A column which for:
- *     	- Small Screens:				(Fill for maximizing small screens) Fills the width 96%
- *     	- Small - Medium Screens:		(Transition to Medium screen using Golden Ratio column) Stays at the width of the smaller screen
- *		- Medium Screens:				(Golden Ratio Column) Fills the width 61.8%
- *
- *****************************************************************************************/
-.golden_column {
-  width: 94%; }
-
-@media (min-width: 320px) {
-  body {
-    font-size: calc( 7pt + .8vw); } }
-
-@media (min-width: 481px) {
-  .golden_column {
-    width: 452.14px; } }
-
-@media (min-width: 778.27435px) {
-  .golden_column {
-    width: 61.8034%; } }
-
-@media (min-width: 961px) {
-  body {
-    font-size: calc( 7pt + .8vw); } }
-
-@media (min-width: 1025px) {
-  body {
-    font-size: calc( 7pt + .8vw); } }
-
-@media (min-width: 1281px) {
-  body {
-    font-size: calc( 7pt + .8vw); } }
-
-@media (min-width: 1800px) {
-  body {
-    font-size: calc( 7pt + .8vw); } }
-
+body{
+	background: #222;
+	color: #f4f4f4;
+}
 /*
- *  |Indent only the items in a list|
- */
-ul.indent_list em {
-  font-weight: bold;
-  font-style: normal; }
+*/
 
-ul.indent_list li {
-  margin-left: 10%; }
-
-/* Sugar */
-@keyframes moveInFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-5em); }
-  80% {
-    opacity: 0.5; }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
-
-@keyframes moveInFromRight {
-  0% {
-    opacity: 0;
-    transform: translateX(5em); }
-  80% {
-    opacity: 0.5; }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
-
-@keyframes moveInFromTop {
-  0% {
-    opacity: 0;
-    transform: translateY(-5em); }
-  80% {
-    opacity: 0.5; }
-  100% {
-    opacity: 1;
-    transform: translateY(0); } }
-
-@keyframes moveInFromBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(5em); }
-  80% {
-    opacity: 0.5; }
-  100% {
-    opacity: 1;
-    transform: translateY(0); } }
-
-/* ---------------------------------
- * Circles
- *----------------------------------*/
-/* ---------------------------------
- * Clips
- */
-.clip_1 {
-  clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%); }
-
-.clip_2 {
-  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%); }
-
-.clip_3 {
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); }
-
-.clip_4 {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%); }
-
-.clip_1.clip_2 {
-  clip-path: polygon(0 20%, 50% 0, 100% 20%, 100% 100%, 0 100%); }
-
-.clip_1.clip_3 {
-  clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%); }
-
-.clip_1.clip_4 {
-  clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 50%); }
-
-.clip_2.clip_3 {
-  clip-path: polygon(0 0, 100% 50%, 100% 100%, 0 100%); }
-
-.clip_2.clip_4 {
-  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%); }
-
-.clip_3.clip_4 {
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); }
-
-.clip_1.clip_2.clip_3.clip_4 {
-  clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%); }
-
-/* ---------------------------------
- * Triangles
- */
-/* ---------------------------------
- * Diamonds
- */
-/* ---------------------------------
- * Stars
- */
-.elevation-1 {
-  box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.8); }
-
-.elevation-2 {
-  box-shadow: 0 0.2em 0.2em rgba(0, 0, 0, 0.8); }
-
-.elevation-3 {
-  box-shadow: 0 0.3em 0.3em rgba(0, 0, 0, 0.8); }
-
-.elevation-4 {
-  box-shadow: 0 0.4em 0.4em rgba(0, 0, 0, 0.8); }
-
-.elevation-5 {
-  box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.8); }
-
-.elevation-6 {
-  box-shadow: 0 0.6em 0.6em rgba(0, 0, 0, 0.8); }
-
-.elevation-7 {
-  box-shadow: 0 0.7em 0.7em rgba(0, 0, 0, 0.8); }
-
-.elevation-8 {
-  box-shadow: 0 0.8em 0.8em rgba(0, 0, 0, 0.8); }
-
-.elevation-9 {
-  box-shadow: 0 0.9em 0.9em rgba(0, 0, 0, 0.8); }
-
-.elevation-10 {
-  box-shadow: 0 1em 1em rgba(0, 0, 0, 0.8); }
-
-.elevation-11 {
-  box-shadow: 0 1.1em 1.1em rgba(0, 0, 0, 0.8); }
-
-.elevation-12 {
-  box-shadow: 0 1.2em 1.2em rgba(0, 0, 0, 0.8); }
-
-.elevation-13 {
-  box-shadow: 0 1.3em 1.3em rgba(0, 0, 0, 0.8); }
-
-.elevation-14 {
-  box-shadow: 0 1.4em 1.4em rgba(0, 0, 0, 0.8); }
-
-.elevation-15 {
-  box-shadow: 0 1.5em 1.5em rgba(0, 0, 0, 0.8); }
-
-.elevation-16 {
-  box-shadow: 0 1.6em 1.6em rgba(0, 0, 0, 0.8); }
-
-.elevation-17 {
-  box-shadow: 0 1.7em 1.7em rgba(0, 0, 0, 0.8); }
-
-.elevation-18 {
-  box-shadow: 0 1.8em 1.8em rgba(0, 0, 0, 0.8); }
-
-.elevation-19 {
-  box-shadow: 0 1.9em 1.9em rgba(0, 0, 0, 0.8); }
-
-.elevation-20 {
-  box-shadow: 0 2em 2em rgba(0, 0, 0, 0.8); }
-
-#protocol ul li:first-child > details > summary {
-  border-radius: .6em .6em 0 0;
-  overflow: hidden; }
-
-details summary {
-  background: rgba(102, 102, 102, 0.2);
-  cursor: pointer; }
-
-details summary:hover {
-  background: rgba(153, 153, 153, 0.3); }
-
-details > *:not(summary) {
-  background: rgba(51, 51, 51, 0.1); }
-
-/* Normalize */
-*, *:before, *:after {
-  box-sizing: inherit;
-  box-sizing: border-box;
-  border: 0em;
-  padding: 0em;
-  margin: 0em; }
-
-/* Components */
-section#hero {
-  height: 70vh; }
-
-header#navbar {
-  font-size: 1.5rem; }
-
-footer#footer {
-  font-size: 8rem; }
-
-.heading {
-  font-family: "Kaushan Script", Helvetica, serif; }
-
-.maintitle {
-  font-family: "Kaushan Script", Helvetica, serif; }
-
-.subtitle {
-  font-family: "Biryani Light", "Roboto", Helvetica, sans-serif; }
-
-html, body {
-  font-family: "Biryani Light", "Roboto", Helvetica, sans-serif;
-  min-height: 100%; }
-  html main, body main {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center; }
-
-ul {
-  list-style-type: none; }
-  ul li {
-    list-style: none; }
+h1, h2, h3, h4, h5, h6 {
+	text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+h1 {
+	font-size: 4em;
+}
+h2 {
+	font-size: 3em;
+}
+h3 {
+	font-size: 2em;
+}
+h4 {
+	font-size: 1.6em;
+}
+h5 {
+	font-size: 1.4em;
+}
+h6 {
+	font-size: 1.2em;
+}
+.page {
+	font-size: 2vmin;
+	width: 62%;
+	max-width: 1200px;
+	margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+}
+img{
+	max-width: 100%;
+}
+@media ( max-width: 599px){
+	.page {
+		width: 96%;
+	}
+}
+@media ( max-width: 1199px){
+	.page {
+		width: 516px + 14%;
+	}
+}
