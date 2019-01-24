@@ -1,11 +1,48 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300|Raleway');
 
+/*
+ * Dark Theme
+ */
+
 body{
 	background: #222;
 	color: #f4f4f4;
 }
+
 /*
-*/
+ * Blue Theme
+ */
+
+body{
+	background: #224;
+	color: #f4f4f4;
+}
+
+/*
+ * Red Theme
+ */
+
+body{
+	background: #422;
+	color: #f4f4f4;
+}
+
+/*
+ * Night Theme
+ */
+
+body{
+	background: #211;
+	color: rgba(220,220,220,.9);
+}
+img{
+	opacity: .7
+}
+a{
+	color: rgba(100,100,180,.9);
+}
+
+
 
 h1, h2, h3, h4, h5, h6 {
 	text-align: center;
