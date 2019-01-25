@@ -1,0 +1,61 @@
+/********************************
+ * Foundations - Pre Theme
+ ********************************/
+/********************************
+ * Theme
+ ********************************/
+/********************************
+ * Derived - Post Theme
+ ********************************/
+/*
+ * Theme
+ */
+/*
+ * Typography
+ */
+/*
+ * Sharpness
+ */
+/*
+ * Typography
+ */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  font-family: "Raleway", sans-serif; }
+
+body {
+  font-size: calc( 7pt + .8vw);
+  font-family: "Open Sans", serif; }
+
+.page {
+  width: 62%;
+  max-width: 1200px;
+  margin: 0 auto; }
+
+img {
+  max-width: 100%; }
+
+@media (max-width: 599px) {
+  .page {
+    width: 96%; } }
+
+@media (max-width: 1199px) {
+  .page {
+    width: calc(516px + 14%); } }
+
+/*
+ * Color
+ */
+/***************************************
+ * Color 1.1: Background-Font Contrast
+ ***************************************/
+body {
+  background: rgba(200, 200, 200, 0.9);
+  color: rgba(20, 20, 20, 0.7); }
+
+img {
+  max-width: 100%;
+  opacity: .7; }
+
+a {
+  color: #824646; }
