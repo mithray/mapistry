@@ -1,7 +1,7 @@
 const rp = require('request-promise-native');
 const Apify = require('apify');
 const Readability = require('./readability/Readability.js');
-const jsdom = require("jsdom");
+const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 const fs = require('fs');
 const path = require('path');
@@ -12,7 +12,8 @@ process.env.APIFY_MEMORY_MBYTES='999mb'
 const options_requests = {
 	sources: [
 		{ 
-			url: 'https://hackernoon.com/how-does-tor-really-work-c3242844e11f'
+//			url: 'https://hackernoon.com/how-does-tor-really-work-c3242844e11f'
+			url: 'https://www.greycampus.com/blog/information-security/top-cyber-security-interview-questions'
 		},
 	]
 }
@@ -55,7 +56,7 @@ async function handleRequestFunction ({ request }) {
 		let template = data.toString('utf8');
 		const template_dom = new JSDOM(template)
 		const template_document = template_dom.window.document;
-		template_document.querySelector('body').innerHTML = article.content
+		template_document.querySelector('body').innerHTML = `<h1>${article.title}</h1>` + article.content
 		const template_serialized = template_dom.serialize()
 	
 
